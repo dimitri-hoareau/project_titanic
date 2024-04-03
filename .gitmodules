@@ -1,6 +1,0 @@
-[submodule "titanic_project_front"]
-	path = titanic_project_front
-	url = /home/dimitri/Desktop/project_titanic/titanic_project_front/
-[submodule "titanic_project_back"]
-	path = titanic_project_back
-	url = /home/dimitri/Desktop/project_titanic/titanic_project_back/
