@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  backend:
+    build: ./titanic_project_back
+    ports:
+      - "8000:8000"
+    restart: on-failure
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://dimitri:dimitri@db:5432/titanic
+
+  frontend:
+    build: ./titanic_project_front
+    ports:
+      - "80:80"
+    restart: on-failure
+
+  db:
+    image: postgres:13
+    volumes:
+      - titanic_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=dimitri
+      - POSTGRES_PASSWORD=dimitri
+      - POSTGRES_DB=titanic
+    ports:
+      - "5433:5432"
+    restart: on-failure
+
+volumes:
+  titanic_data:
